@@ -20,3 +20,7 @@ ul.items {
 .todo-list {
 	margin-top: 30px;
 }
+
+#delete-button {
+	cursor: pointer;
+}
