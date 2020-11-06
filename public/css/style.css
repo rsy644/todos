@@ -1,0 +1,22 @@
+input.todo-input, textarea.todo-input {
+	width: 300px;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+}
+
+textarea.description {
+	height: 100px;
+}
+
+.todo-row {
+	margin-bottom: 20px;
+}
+
+ul.items {
+	list-style-type: none;
+	padding: 0;
+}
+
+.todo-list {
+	margin-top: 30px;
+}
