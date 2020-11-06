@@ -103,8 +103,6 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($item_id)->delete();
 
-        $results = Item::get_list_entries();
-
         return response()->json(['code' => 200]);
     }
 }

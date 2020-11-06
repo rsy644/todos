@@ -15,13 +15,13 @@
 			<div class="todo-list">
 				<ul class="items">
 				@foreach($items as $item)
-					<li><a data-itemID="{{ $item->id }}" href="{{ route('todos.show', $item->id) }}">{{ $item->title }}&nbsp;&nbsp;</a><span data-toggle="modal" data-target="#delete_modal_<?php echo $item->id; ?>" data-model="<?php echo $item->id; ?>" id="delete-button" value="Delete" style="color: #aaaaaa">x</span>
+					<li data-itemID="{{ $item->id }}"><a href="{{ route('todos.show', $item->id) }}">{{ $item->title }}&nbsp;&nbsp;</a><span data-toggle="modal" data-target="#delete_modal_<?php echo $item->id; ?>" data-model="<?php echo $item->id; ?>" id="delete-button" value="Delete" style="color: #aaaaaa">x</span>
 					</li>
 					<div class="modal fade" id="delete_modal_<?php echo $item->id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">          
-                                <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete item <?php echo $item->title; ?>?</h4>
+                                <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete item "<?php echo $item->title; ?>"?</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
                             <div class="modal-footer">
@@ -54,8 +54,7 @@
 
             var item_id = $(this).data('val');
 
-            console.log(item_id);
-            var item = $('tr[data-itemID="' + item_id + '"]');            
+            var item = $('li[data-itemID="' + item_id + '"]');            
 
             $.ajaxSetup({
                 headers: {
@@ -65,8 +64,8 @@
 
             // Fire off the request
             $.ajax({
-                url: "/items/" + item_id + "/delete",
-                type: "get",
+                url: "/todos/" + item_id,
+                type: "delete",
                 dataType: "JSON",
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                 data: {
