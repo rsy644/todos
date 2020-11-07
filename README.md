@@ -23,7 +23,7 @@
 * 10. Navigate to the root path '/' (or http://127.0.0.1:8000, 'http://localhost/' or similar) in your url field. This will start the app and load the contacts via the index view. You should see a welcome screen. To 
 create a new item, click the 'Add a Todo' button below the welcome heading. Fill out all of the fields in the form (making sure to fill out the date in dd/mm/yyyy format) and then click 'submit'. You will be taken back to the Index page, and the item will appear below in the list.
 
-* 11. To see the full details on an item, click its title. Then on the next page, click the 'Edit Item' link to change the content of form fields to update an item, and hit the 'Update' button to save the record.
+* 11. To see the full details on an item, click its title. Then on the next page, click the 'Edit Item' link to change the content of form fields to update an item, and click the 'Update' button to save the record.
 
 * 12. To delete an item, navigate to the index page and click the grey cross next to the list item to remove the item from the list. You will be prompted 'Are you sure' - click 'yes'.
 
