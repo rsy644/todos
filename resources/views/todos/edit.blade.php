@@ -6,15 +6,15 @@
 		<a href="{{ route('todos.index') }}">< Back</a>
 		<h1>Edit an item</h1>
 
-		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('todos.update', $item->id) }}">
-		@csrf
+		<form method="POST" role="form" enctype="multipart/form-data" action="{{route('todos.update', $item->id) }}">		
+			@method('PUT')<!-- hidden field to spoof the put method -->
+			@csrf
 			<div class="form-input">
 				<input type="hidden" name="user_id" class="user_id" id="user_id" value="#" />
 				<div class="row todo-row">
 					<div class="col-sm-1">
 						<label for="item">Title</label>
-					</div>
-
+					</div>					
 					<div class="col-sm-3">
 						@if(isset($item->title))
 							<input type="text" id="title" name="title" class="todo-input title" value="{{ $item->title }}">
@@ -54,10 +54,8 @@
 						@endif
 					</div>
 				</div>
-
-				<input type="submit" class="btn btn-success text-white" id="submit" name="submit" value="Submit">
-
 			</div>
+			<input type="submit" class="btn btn-success text-white" id="submit" name="submit" value="Submit">
 
 		</form>
 	</div>
