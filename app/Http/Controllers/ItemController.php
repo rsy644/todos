@@ -92,7 +92,17 @@ class ItemController extends Controller
      */
     public function update(Request $request, $item_id)
     {
-        //
+        $item::findOrFail($item_id);
+        $item->title = $request->title;
+        $item->description = $request->description;
+        $reminder = date_create_from_format('d/m/Y', $request->reminder);
+        $item->reminder = $reminder->format('Y-m-d H:i:s');
+        $item->save();
+
+        $user_id = Auth::user()->id; // Get the id of the current logged in user.
+        $items = Item::all()->where('user_id', '=', $user_id);
+
+        return view('todos.index')->with(['items' => $items]);
     }
 
     /**
