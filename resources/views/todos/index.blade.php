@@ -15,7 +15,7 @@
 			<div class="todo-list">
 				<ul class="items">
 				@foreach($items as $item)
-					<li data-itemID="{{ $item->id }}"><a href="{{ route('todos.show', $item->id) }}">{{ $item->title }}&nbsp;&nbsp;</a><span data-toggle="modal" data-target="#delete_modal_<?php echo $item->id; ?>" data-model="<?php echo $item->id; ?>" id="delete-button" value="Delete" style="color: #aaaaaa">x</span>
+					<li data-itemID="{{ $item->id }}"><a href="{{ route('todos.show', $item->id) }}">{{ $item->title }}</a>&nbsp;&nbsp;<span data-toggle="modal" data-target="#delete_modal_<?php echo $item->id; ?>" data-model="<?php echo $item->id; ?>" id="delete-button" value="Delete" style="color: #aaaaaa">x</span>
 					</li>
 					<div class="modal fade" id="delete_modal_<?php echo $item->id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
