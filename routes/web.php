@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\ItemController;
 use App\Models\Item;
 
@@ -18,8 +19,7 @@ use App\Models\Item;
 Auth::routes();
 
 Route::get('/', function () {
-	$items = Item::all();
-    return view('todos.index')->with('items', $items);
+    return redirect::route('todos.index');
 })->middleware('auth');
 
 Route::resource('todos', ItemController::class);

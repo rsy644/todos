@@ -36,7 +36,7 @@
 					</div>
 
 					<div class="col-sm-3">
-						<input type="text" id="reminder" name="reminder" class="todo-input reminder" value="">
+						<input type="text" placeholder="dd/mm/yyyy" id="reminder" name="reminder" class="todo-input reminder" value="">
 					</div>
 				</div>
 

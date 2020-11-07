@@ -18,7 +18,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $items = Item::all();
+        $user_id = Auth::user()->id; // Get the id of the current logged in user.
+        $items = Item::all()->where('user_id', '=', $user_id);
         return view('todos.index')->with('items', $items);
     }
 
@@ -51,7 +52,8 @@ class ItemController extends Controller
         $item->reminder = $reminder->format('Y-m-d H:i:s');
         $item->save();
 
-        $items = Item::all();
+        $user_id = Auth::user()->id; // Get the id of the current logged in user.
+        $items = Item::all()->where('user_id', '=', $user_id);
 
         return view('todos.index')->with(['items' => $items]);
 
